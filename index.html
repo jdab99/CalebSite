@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ===== METADATA (fill {{TOKENS}} before deploy) ===== -->
+<title>Caleb — Musician & Music Coach</title>
+<meta name="description" content="Caleb is a musician and coach who helps you learn to play, find your sound, and grow. Book a session.">
+<link rel="canonical" href="{{LIVE_URL}}">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Caleb">
+<meta property="og:title" content="Caleb — Musician & Music Coach">
+<meta property="og:description" content="A musician and coach who helps you learn to play, find your sound, and grow.">
+<meta property="og:url" content="{{LIVE_URL}}">
+<meta property="og:image" content="{{LIVE_URL}}/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Caleb, musician and coach">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Caleb — Musician & Music Coach">
+<meta name="twitter:description" content="A musician and coach who helps you learn to play and find your sound.">
+<meta name="twitter:image" content="{{LIVE_URL}}/share.jpg">
+<meta name="theme-color" content="#17141f">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Caleb",
+  "url": "{{LIVE_URL}}",
+  "jobTitle": "Musician and Music Coach",
+  "description": "Musician and coach helping students learn to play, find their sound, and grow their skills.",
+  "knowsAbout": ["Music", "Music coaching", "Songwriting", "Performance"],
+  "sameAs": ["{{SOCIAL_URL}}"]
+}
+</script>
+
+<style>
+  :root{
+    --night:#17141f; --plum:#241d31; --bone:#ede6da; --brass:#c9a24b;
+    --lav:#8a7fa6; --violet:#3b3350; --ink:#0f0d14;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--night); color:var(--bone);
+    font-family:"Inter",system-ui,sans-serif; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:min(1000px,90vw); margin-inline:auto}
+  .label{font-family:"Spline Sans Mono",monospace; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--brass)}
+  a{color:inherit}
+  .skip{position:absolute;left:-999px;top:0;background:var(--brass);color:#1a1408;padding:.6rem 1rem;z-index:99}
+  .skip:focus{left:0}
+  :focus-visible{outline:3px solid var(--brass); outline-offset:3px}
+
+  .btn{
+    display:inline-flex; align-items:center; gap:.5rem; font-weight:600;
+    padding:.9rem 1.6rem; border-radius:999px; text-decoration:none; font-size:1rem;
+    transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--brass); color:#1a1408}
+  .btn-ghost{border:1.5px solid rgba(237,230,218,.35); color:var(--bone)}
+
+  /* ---- HERO ---- */
+  header.hero{min-height:92vh; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden;
+    background:radial-gradient(120% 90% at 15% 0%, #2b2340 0%, var(--night) 60%);}
+  .topbar{position:absolute; top:0; left:0; right:0; padding:1.6rem 0}
+  .topbar .wrap{display:flex; justify-content:space-between; align-items:center}
+  .mark{font-family:"Instrument Serif",serif; font-size:1.5rem; letter-spacing:.01em}
+  .hero-in{max-width:20ch}
+  h1{
+    font-family:"Instrument Serif",serif; font-weight:400; line-height:1;
+    font-size:clamp(3.2rem,11vw,8rem); letter-spacing:-.01em; margin:1rem 0;
+  }
+  h1 em{color:var(--brass)}
+  .lede{font-size:1.2rem; max-width:44ch; color:#d9d1e0; margin-bottom:2rem}
+  .cta-row{display:flex; flex-wrap:wrap; gap:.9rem}
+  .scroll-note{position:absolute; bottom:1.6rem; left:0; right:0}
+  .scroll-note .label{opacity:.6}
+
+  section{padding:6rem 0}
+  h2{font-family:"Instrument Serif",serif; font-weight:400; font-size:clamp(2.2rem,6vw,3.6rem); line-height:1.02}
+
+  /* ---- ABOUT / liner notes ---- */
+  .about{background:var(--plum)}
+  .liner{display:grid; grid-template-columns:.8fr 1.2fr; gap:3rem; margin-top:1.4rem; align-items:start}
+  .liner p{font-size:1.12rem; color:#e7e0d4; max-width:56ch}
+  .liner p + p{margin-top:1.1rem}
+  .sleeve{border:1px solid rgba(201,162,75,.35); border-radius:16px; padding:1.4rem; background:rgba(15,13,20,.4)}
+  .sleeve .label{margin-bottom:.8rem; display:block}
+  .sleeve dl{display:grid; grid-template-columns:auto 1fr; gap:.55rem 1rem}
+  .sleeve dt{font-family:"Spline Sans Mono",monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--lav)}
+  .sleeve dd{font-weight:500}
+
+  /* ---- TRACKLIST (offerings) ---- */
+  .tracks{background:var(--night)}
+  .track{
+    display:grid; grid-template-columns:auto 1fr auto; gap:1.4rem; align-items:baseline;
+    padding:1.5rem 0; border-top:1px solid rgba(237,230,218,.14);
+  }
+  .track:last-child{border-bottom:1px solid rgba(237,230,218,.14)}
+  .track .no{font-family:"Spline Sans Mono",monospace; color:var(--brass); font-size:.9rem}
+  .track h3{font-family:"Instrument Serif",serif; font-weight:400; font-size:1.7rem; line-height:1.1}
+  .track p{color:#c8c0d4; margin-top:.25rem; max-width:52ch}
+  .track .len{font-family:"Spline Sans Mono",monospace; font-size:.8rem; color:var(--lav)}
+
+  /* ---- BOOK CTA ---- */
+  .book{background:linear-gradient(160deg,#2b2340,#17141f); text-align:center}
+  .book h2{font-size:clamp(2.6rem,7vw,4.6rem); margin-bottom:.6rem}
+  .book p{max-width:42ch; margin:0 auto 2rem; color:#d9d1e0; font-size:1.12rem}
+
+  footer{background:var(--ink); padding:3rem 0}
+  .foot{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem}
+  .foot .label{opacity:.7}
+
+  @media (max-width:760px){
+    .liner{grid-template-columns:1fr}
+    .track{grid-template-columns:auto 1fr; }
+    .track .len{grid-column:2; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hero">
+  <div class="topbar"><div class="wrap">
+    <span class="mark">Caleb</span>
+    <span class="label">Musician · Coach</span>
+  </div></div>
+  <div class="wrap hero-in">
+    <span class="label">Side A</span>
+    <h1>Find your <em>sound</em>.</h1>
+    <p class="lede">I'm Caleb, a musician and coach. I help people learn to play, build real skill, and enjoy music again. Let's make something.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="{{BOOKING_URL}}">Book a session</a>
+      <a class="btn btn-ghost" href="#about">About me</a>
+    </div>
+  </div>
+  <div class="scroll-note"><div class="wrap"><span class="label">Scroll for the liner notes</span></div></div>
+</header>
+
+<main id="main">
+
+<section class="about" id="about">
+  <div class="wrap">
+    <span class="label">Liner notes</span>
+    <div class="liner">
+      <div class="sleeve" aria-label="About card">
+        <span class="label">On the record</span>
+        <dl>
+          <dt>Name</dt><dd>Caleb</dd>
+          <dt>Role</dt><dd>Musician &amp; coach</dd>
+          <dt>Teaches</dt><dd>{{INSTRUMENTS}}</dd>
+          
+        </dl>
+      </div>
+      <div>
+        <h2>Music, made simple.</h2>
+        <p>I've spent years with music as the center of my life. Playing it, learning it, and figuring out what actually helps someone get better. Now I coach other people to do the same.</p>
+        <p>You don't need talent to start. You need someone patient who can show you the next step and keep it fun. That's the part I love, and that's what you get when we work together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tracks">
+  <div class="wrap">
+    <span class="label">Side B · What we can work on</span>
+    <div style="margin-top:1.6rem">
+      <div class="track">
+        <span class="no">01</span>
+        <div><h3>Learn to play</h3><p>Start from zero or pick up where you left off. Real songs, real progress, at your pace.</p></div>
+        <span class="len">1 on 1</span>
+      </div>
+      <div class="track">
+        <span class="no">02</span>
+        <div><h3>Find your sound</h3><p>Already play a little? We'll shape your style and help you sound like you.</p></div>
+        <span class="len">1 on 1</span>
+      </div>
+      <div class="track">
+        <span class="no">03</span>
+        <div><h3>Get unstuck</h3><p>Hit a wall? We break down what's holding you back and build a plan to move past it.</p></div>
+        <span class="len">1 on 1</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book">
+  <div class="wrap">
+    <span class="label">Encore</span>
+    <h2>Ready to play?</h2>
+    <p>Book a first session and let's find out where your music can go.</p>
+    <a class="btn btn-primary" href="{{BOOKING_URL}}">Book a session</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="mark">Caleb</span>
+    <span class="label">Built by Gaskins Digital · jesse@gaskinsdigital.com</span>
+  </div>
+</footer>
+</body>
+</html>
